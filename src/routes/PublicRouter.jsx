@@ -1,3 +1,4 @@
+import Layouts from "../components/layouts/Layouts";
 import About from "../pages/About/About";
 import Blog from "../pages/Blog/Blog";
 import Contact from "../pages/Contact/Contact";
@@ -6,24 +7,29 @@ import Team from "../pages/Team/Team";
 
 const PublicRouter = [
     {
-        path:"/",
-        element: <Home />
-    },
-    {
-        path:"/about",
-        element: <About />
-    },
-    {
-        path:"/blog",
-        element: <Blog />
-    },
-    {
-        path:"/team",
-        element: <Team />
-    },
-    {
-        path:"/contact",
-        element: <Contact />
+        element: <Layouts />,
+        children: [
+            {
+                path:"/",
+                element: <Home />
+            },
+            {
+                path:"/about",
+                element: <About />
+            },
+            {
+                path:"/blog",
+                element: <Blog />
+            },
+            {
+                path:"/team",
+                element: <Team />
+            },
+            {
+                path:"/contact",
+                element: <Contact />
+            }
+        ],
     }
 ];
 
