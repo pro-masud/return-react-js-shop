@@ -1,10 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './contact.scss';
 
 const Contact = () => {
+  const [input, setInput] = useState({
+    name: "",
+    email: "",
+    password: "",
+    message: "",
+  });
+
+  const handInputValue = (e) => {
+    setInput((preValue) => ({
+      ...preValue, 
+      [e.target.name] : e.target.value
+    }));
+  }
+  
   return (
     <>
-      <h1>Contact Us</h1>
+       <div className="container container-contact-form">
+        <h2>contact us page</h2>
+        <hr />
+        <p>{name}</p>
+        <div className="contact-form">
+          <div className="react-form">
+            <form action="">
+              <input
+                type="text"
+                placeholder="User Name" name="name"
+                value={input.name} onChange={handInputValue}
+              />
+              <input type="text" name="email" placeholder="Email" value={input.email} onChange={handInputValue} />
+              <input
+                type="text" name="password"
+                placeholder="Password"
+                value={input.password}
+                onChange={handInputValue}
+              />
+              <input type="text" name="message" placeholder="Message" value={input.message} onChange={handInputValue} />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
