@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from 'react-router-dom';
+import MesContext from "../../context/MsgContext";
 
 const Header = () => {
+  const {count, setCount} = useContext(MesContext);
   return (
     <>
     <header>
@@ -10,6 +13,9 @@ const Header = () => {
                 <div className="logo">
                 <Link to="/"><img src={logo} alt="" /></Link>
                 </div>
+            </div>
+            <div className="counter">
+              <h3>{count}</h3>
             </div>
             <div className="header-right">
                 <ul className='menu'>

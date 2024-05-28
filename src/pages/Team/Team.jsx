@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import './team.scss';
+import MesContext from '../../context/MsgContext';
 
 const Team = () => {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    console.log("My name is masud rana")
-  }, [count]);
-
+  const {count, setCount} = useContext(MesContext);
 
   const setCountHandleINC = () => {
      setCount((prive) => prive + 1)
