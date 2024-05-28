@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './contact.scss';
-
+import { toast } from 'react-toastify'
 const Contact = () => {
   const [input, setInput] = useState({
     name: "",
@@ -15,6 +15,24 @@ const Contact = () => {
       [e.target.name] : e.target.value
     }));
   }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    
+    if(!input.name || !input.email || !input.password || !input.message){
+      toast("Fields Must Be Empty !!!!");
+    }else{
+      toast('🦄 Wow so easy!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+        });
+    }
+  }
   
   return (
     <>
@@ -24,7 +42,7 @@ const Contact = () => {
         <p>{name}</p>
         <div className="contact-form">
           <div className="react-form">
-            <form action="">
+            <form onSubmit={handleFormSubmit}>
               <input
                 type="text"
                 placeholder="User Name" name="name"
