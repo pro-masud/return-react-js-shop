@@ -2,9 +2,11 @@ import { useContext } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from 'react-router-dom';
 import MesContext from "../../context/MsgContext";
+import CounterContext from "../../context/CounterContext";
 
 const Header = () => {
   const {count, setCount} = useContext(MesContext);
+  const {text, setText} = useContext(CounterContext);
   return (
     <>
     <header>
@@ -15,7 +17,7 @@ const Header = () => {
                 </div>
             </div>
             <div className="counter">
-              <h3>{count}</h3>
+              <h3>{count}{text}</h3>
             </div>
             <div className="header-right">
                 <ul className='menu'>
